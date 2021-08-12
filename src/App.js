@@ -1,36 +1,23 @@
+import React, { useState } from "react";
 import { Component } from "react";
-import "./styles.css";
+import UserListRender from "./Example/UserListRender";
+import ModifyCounter from "./Example/ModifyCounter";
 
-export default class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 0
-    };
+function App() {
+  const [example, setExample] = useState(0);
+
+  const changeExample = () => {
+    setExample((prevExample) => (prevExample === 2 ? 0 : prevExample + 1))
   }
 
-  modifyCount = (incr) => {
-    let count = this.state.count + parseInt(incr, 10);
+  return (
+    <div className="App">
+      <button onClick={changeExample}>Switch Example</button>
+      { example === 0 && <UserListRender/>}
+      { example === 1 && <ModifyCounter/>}
+    </div>
+  );
 
-    this.setState({
-      count: count
-    });
-  };
-
-  render() {
-    return (
-      <div className="App">
-        <h1>Counter</h1>
-        <div>
-          <button class="add" onClick={() => this.modifyCount("-1")}>
-            subtract
-          </button>
-          <span class="my-number">{this.state.count}</span>
-          <button class="add" onClick={() => this.modifyCount(1)}>
-            add
-          </button>
-        </div>
-      </div>
-    );
-  }
 }
+
+export default App;
