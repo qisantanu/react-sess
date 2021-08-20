@@ -24,10 +24,22 @@ function UserListRenderFunc() {
     });
   };
 
+  const deleteLastUser = () => {
+    if (users.length === 1) {
+      return;
+    }
+    console.log("deleteLastUser");
+    let usersFromState = users;
+    usersFromState.pop();
+    setUsers([...usersFromState]);
+  };
+
   return (
     <>
       <h1>List of users (Functional)</h1>
-
+      <button className="delete-user" onClick={deleteLastUser}>
+        Delete Last User
+      </button>
       <table id="users">
         <thead>
           <tr>

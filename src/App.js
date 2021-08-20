@@ -13,9 +13,9 @@ function App() {
   return (
     <div className="App">
       <button onClick={changeExample}>Switch Example</button>
-      {example === 0 && <UserListRender />}
+      {example === 1 && <UserListRender />}
       {example === 2 && <ModifyCounter />}
-      {example === 1 && <UserListRenderFunc />}
+      {example === 0 && <UserListRenderFunc />}
     </div>
   );
 }

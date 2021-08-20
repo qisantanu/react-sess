@@ -22,11 +22,11 @@ class ModifyCounter extends React.Component {
       <div className="App">
         <h1>Counter</h1>
         <div>
-          <button class="add" onClick={() => this.modifyCount("-1")}>
+          <button className="add" onClick={() => this.modifyCount("-1")}>
             subtract
           </button>
-          <span class="my-number">{this.state.count}</span>
-          <button class="add" onClick={() => this.modifyCount(1)}>
+          <span className="my-number">{this.state.count}</span>
+          <button className="add" onClick={() => this.modifyCount(1)}>
             add
           </button>
         </div>
