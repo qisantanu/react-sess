@@ -29,10 +29,24 @@ class UserListRender extends React.Component {
     });
   }
 
+  shouldComponentUpdate(nextPros, nextState) {
+    //console.log(nextState.users.length);
+    return nextState.users.length > 0;
+  }
+
+  deleteLastUser() {
+    let users = this.state.users;
+    users.pop();
+    this.setState({ users: users });
+  }
+
   render() {
     return (
       <>
         <h1>List of users</h1>
+        <button className="delete-user" onClick={() => this.deleteLastUser()}>
+          Delete Last User
+        </button>
         <table id="users">
           <thead>
             <tr>
